@@ -2,6 +2,8 @@ import { ImageBackground, StatusBar, SafeAreaView, Text, View } from 'react-nati
 import styles from './App.components.style';
 
 import background from './assets/image/bg.png';
+import colors from './contains/colors';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function App() {
   return (
@@ -14,12 +16,12 @@ export default function App() {
         <SafeAreaView style={styles.container}>
           <View style={styles.info}>
             <View style={styles.infoScores}>
-              <Text>Icon</Text>
-              <Text>10</Text>
+              <FontAwesome name='money' size={24} color={colors.one} />
+              <Text style={styles.infoText}>10</Text>
             </View>
             <View style={styles.infoTime}>
-              <Text>Icon</Text>
-              <Text>60</Text>
+            <FontAwesome name='clock-o' size={24} color={colors.one}  />
+              <Text style={styles.infoText}>60</Text>
             </View>
           </View>
           <View style={styles.play}></View>
