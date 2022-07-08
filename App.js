@@ -1,9 +1,10 @@
 import { ImageBackground, StatusBar, SafeAreaView, Text, View } from 'react-native';
-import styles from './App.components.style';
+import { FontAwesome } from '@expo/vector-icons';
 
+import styles from './App.components.style';
 import background from './assets/image/bg.png';
 import colors from './contains/colors';
-import { FontAwesome } from '@expo/vector-icons';
+import Item from './components/item';
 
 export default function App() {
   return (
@@ -24,7 +25,24 @@ export default function App() {
               <Text style={styles.infoText}>60</Text>
             </View>
           </View>
-          <View style={styles.play}></View>
+          <View style={styles.play}>
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+          </View>
         </SafeAreaView>
       </ImageBackground>
     </>

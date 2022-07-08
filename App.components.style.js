@@ -30,5 +30,9 @@ export default styles = StyleSheet.create({
         fontWeight: 'bold',
         color: colors.one,
         marginLeft: 10,
-    }
+    },
+    play: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
 });
