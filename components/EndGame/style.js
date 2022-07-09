@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
+import colors from '../../contains/colors';
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height - 128;
 
@@ -12,9 +13,10 @@ export default styles = StyleSheet.create({
     },
     modalView: {
         margin: 20,
+        paddingHorizontal: 58,
+        paddingVertical: 26,
         backgroundColor: "white",
         borderRadius: 20,
-        padding: 35,
         alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
@@ -42,7 +44,38 @@ export default styles = StyleSheet.create({
         textAlign: "center"
     },
     modalText: {
-        marginBottom: 15,
-        textAlign: "center"
-    }
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 21,
+    },
+    modalBoxScore: {
+        flexDirection: 'row',
+        marginBottom: 18,
+        alignItems: 'flex-end',
+    },
+    modalBoxScoreText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        marginRight: 36,
+    },
+    modalBoxScoreNumber: {
+        fontSize: 72,
+        fontWeight: 'bold',
+        color: colors.numberScore,
+    },
+    modalButton: {
+        flexDirection: 'row',
+        backgroundColor: colors.four,
+        paddingVertical: 12,
+        paddingHorizontal: 27,
+        borderRadius: 20,
+        alignItems: 'center'
+    },
+    modalButtonText: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: colors.one,
+        marginLeft: 15,
+    },
 })
