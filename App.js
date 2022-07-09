@@ -23,7 +23,17 @@ const bgShuffle = () => shuffle(arrBg);
 export default function App() {
   const [items, setItems] = useState(dataShuffle());
   const [bg, setBg] = useState(bgShuffle());
+  const [numberNext, setNumberNext] = useState(1);
+  const score = numberNext - 1;
 
+  const onChoice = (value) => {
+    if (value === numberNext) {
+      setNumberNext(value + 1);
+    } else {
+      setNumberNext(1);
+      alert('Error');
+    }
+  }
   return (
     <>
       <StatusBar hidden={true} />
@@ -49,6 +59,8 @@ export default function App() {
                   key={(index.toString())}
                   value={val}
                   bg={bg[index]}
+                  onChoice={onChoice}
+                  score={score}
                 />
               )
             }

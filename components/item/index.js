@@ -3,12 +3,14 @@ import React from 'react'
 
 import styles from './style';
 
-export default Item = ({value, bg}) => {
+export default Item = ({ value, bg, onChoice, score }) => {
+    const active = value <= score ? styles.active : {};
+    const activeNumber = value <= score ? styles.activeNumber : {};
     return (
-        <TouchableOpacity style={styles.container}>
-            <View style={[styles.item, bg]}>
-                <Text style={styles.itemNumber}>
-                    {value < 10 ? `0${value}`: value}
+        <TouchableOpacity style={styles.container} onPress={() => onChoice(value)}>
+            <View style={[styles.item, bg, active]}>
+                <Text style={[styles.itemNumber, activeNumber]}>
+                    {value < 10 ? `0${value}` : value}
                 </Text>
             </View>
         </TouchableOpacity>

@@ -43,4 +43,11 @@ export default styles = StyleSheet.create({
         backgroundColor : colors.five,
         borderColor: colors.five,
     },
+    active: {
+        backgroundColor: colors.active,
+        borderColor: colors.active,
+    },
+    activeNumber: {
+        color: colors.two,
+    }
 })
