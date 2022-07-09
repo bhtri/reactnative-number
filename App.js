@@ -1,6 +1,6 @@
 import { ImageBackground, StatusBar, SafeAreaView, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 
 import styles from './App.components.style';
 import background from './assets/image/bg.png';
@@ -9,6 +9,7 @@ import Item from './components/Item';
 import EndGame from './components/EndGame';
 import styleItem from './components/Item/style';
 import Time from './components/Time';
+import define from './contains/define';
 
 const shuffle = (array) => array.sort(() => Math.random() - 0.5);
 const bgConstant = [styleItem.bg_one, styleItem.bg_two, styleItem.bg_three, styleItem.bg_four, styleItem.bg_five];
@@ -22,23 +23,36 @@ const bgShuffle = () => shuffle(arrBg);
 
 
 export default function App() {
+  const [startGame, setStartGame] = useState(false);
   const [items, setItems] = useState(dataShuffle());
   const [bg, setBg] = useState(bgShuffle());
-  const [numberNext, setNumberNext] = useState(1);
+  const [numberNext, setNumberNext] = useState(define.NUMBER_START);
   const [endGame, setEndGame] = useState(false);
+  const [timeOut, setTimeOut] = useState(define.TIME_DEFAULT);
   const score = numberNext - 1;
 
   const onChoice = (value) => {
+    if (value === define.NUMBER_START) {
+      setStartGame(true);
+    }
     if (value === numberNext) {
       setNumberNext(value + 1);
     } else {
+      setStartGame(false);
       setEndGame(true);
     }
   }
 
   const onClose = () => {
-    setNumberNext(1);
+    setNumberNext(define.NUMBER_START);
     setEndGame(false);
+    setStartGame(false);
+  }
+
+  const onResponse = (isTimeOut) => {
+    if (isTimeOut) {
+      setEndGame(true);
+    }
   }
 
   return (
@@ -57,7 +71,7 @@ export default function App() {
             <View style={styles.infoTime}>
               <FontAwesome name='clock-o' size={24} color={colors.one} />
               <Text style={styles.infoText}>
-                <Time />
+                <Time onResponse={onResponse} startGame={startGame} timeOut={timeOut}/>
               </Text>
             </View>
           </View>
