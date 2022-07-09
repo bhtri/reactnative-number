@@ -21,14 +21,17 @@ for (let i = 0; i < 10; i++) {
 const dataShuffle = () => shuffle(Array.from({ length: 50 }, (_, i) => i + 1));
 const bgShuffle = () => shuffle(arrBg);
 
+const dataInit = dataShuffle();
+const bgInit = bgShuffle();
 
 export default function App() {
   const [startGame, setStartGame] = useState(false);
-  const [items, setItems] = useState(dataShuffle());
-  const [bg, setBg] = useState(bgShuffle());
+  const [items, setItems] = useState(dataInit);
+  const [bg, setBg] = useState(bgInit);
   const [numberNext, setNumberNext] = useState(define.NUMBER_START);
   const [endGame, setEndGame] = useState(false);
   const [timeOut, setTimeOut] = useState(define.TIME_DEFAULT);
+  const [hightScore, setHightScore] = useState(0);
   const score = numberNext - 1;
 
   const onChoice = (value) => {
@@ -36,6 +39,9 @@ export default function App() {
       setStartGame(true);
     }
     if (value === numberNext) {
+      if (value > hightScore) {
+        setHightScore(value);
+      }
       setNumberNext(value + 1);
     } else {
       setStartGame(false);
@@ -47,10 +53,15 @@ export default function App() {
     setNumberNext(define.NUMBER_START);
     setEndGame(false);
     setStartGame(false);
+    setItems(dataShuffle());
+    setBg(bgShuffle());
   }
 
   const onResponse = (isTimeOut) => {
     if (isTimeOut) {
+      if (score > hightScore) {
+        setHightScore(score);
+      }
       setEndGame(true);
     }
   }
@@ -66,7 +77,7 @@ export default function App() {
           <View style={styles.info}>
             <View style={styles.infoScores}>
               <FontAwesome name='money' size={24} color={colors.one} />
-              <Text style={styles.infoText}>10</Text>
+              <Text style={styles.infoText}>{hightScore}</Text>
             </View>
             <View style={styles.infoTime}>
               <FontAwesome name='clock-o' size={24} color={colors.one} />
