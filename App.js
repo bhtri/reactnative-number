@@ -21,11 +21,55 @@ export default function App() {
               <Text style={styles.infoText}>10</Text>
             </View>
             <View style={styles.infoTime}>
-            <FontAwesome name='clock-o' size={24} color={colors.one}  />
+              <FontAwesome name='clock-o' size={24} color={colors.one} />
               <Text style={styles.infoText}>60</Text>
             </View>
           </View>
           <View style={styles.play}>
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
+            <Item />
             <Item />
             <Item />
             <Item />

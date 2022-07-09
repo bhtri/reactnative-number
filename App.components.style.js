@@ -12,6 +12,7 @@ export default styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: 25,
         paddingTop: (Platform.OS === 'ios') ? 0 : 23,
+        marginBottom: 40,
     },
     infoScores: {
         flex: 1,
