@@ -1,5 +1,6 @@
 import { ImageBackground, StatusBar, SafeAreaView, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { useState } from 'react';
 
 import styles from './App.components.style';
 import background from './assets/image/bg.png';
@@ -7,7 +8,11 @@ import colors from './contains/colors';
 import Item from './components/Item';
 import EndGame from './components/EndGame';
 
+const data = () => Array.from({ length: 50 }, (_, i) => i + 1);
+
 export default function App() {
+  const [items, setItems] = useState(data());
+
   return (
     <>
       <StatusBar hidden={true} />
@@ -27,58 +32,16 @@ export default function App() {
             </View>
           </View>
           <View style={styles.play}>
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
+            {
+              items.map((val, index) =>
+                <Item
+                key={(index.toString())}
+                value={val}
+                />
+              )
+            }
           </View>
-          <EndGame />
+          {/* <EndGame /> */}
         </SafeAreaView>
       </ImageBackground>
     </>

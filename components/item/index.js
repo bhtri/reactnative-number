@@ -3,12 +3,12 @@ import React from 'react'
 
 import styles from './style';
 
-export default Item = () => {
+export default Item = ({value}) => {
     return (
         <TouchableOpacity style={styles.container}>
             <View style={styles.item}>
                 <Text style={styles.itemNumber}>
-                    00
+                    {value < 10 ? `0${value}`: value}
                 </Text>
             </View>
         </TouchableOpacity>
