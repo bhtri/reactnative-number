@@ -1,8 +1,8 @@
 import EndGame from './EndGame';
-import Time from './Time';
 import Item from './Item';
+import Info from './Info';
 import styleItem from './Item/style';
 
 export {
-    EndGame, Time, Item, styleItem
+    EndGame, Item, Info, styleItem
 }

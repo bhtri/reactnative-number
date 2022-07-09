@@ -1,9 +1,8 @@
 import { ImageBackground, StatusBar, SafeAreaView, Text, View } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
 import { useState } from 'react';
 
-import { Time, Item, EndGame, styleItem } from './components';
-import { DEFINE, COLORS, IMAGE } from './contains';
+import { Item, EndGame, styleItem, Info } from './components';
+import { DEFINE, IMAGE } from './contains';
 import styles from './App.components.style';
 
 const shuffle = (array) => array.sort(() => Math.random() - 0.5);
@@ -69,18 +68,7 @@ export default function App() {
         style={styles.backgroundImage}
       >
         <SafeAreaView style={styles.container}>
-          <View style={styles.info}>
-            <View style={styles.infoScores}>
-              <FontAwesome name='money' size={24} color={COLORS.one} />
-              <Text style={styles.infoText}>{hightScore}</Text>
-            </View>
-            <View style={styles.infoTime}>
-              <FontAwesome name='clock-o' size={24} color={COLORS.one} />
-              <Text style={styles.infoText}>
-                <Time onResponse={onResponse} startGame={startGame} timeOut={timeOut} />
-              </Text>
-            </View>
-          </View>
+          <Info onResponse={onResponse} startGame={startGame} timeOut={timeOut} hightScore={hightScore} />
           <View style={styles.play}>
             {
               items.map((val, index) =>
