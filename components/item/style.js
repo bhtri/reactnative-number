@@ -22,5 +22,25 @@ export default styles = StyleSheet.create({
         paddingHorizontal: 13,
         paddingVertical: 13,
         color: colors.background,
-    }
+    },
+    bg_one: {
+        backgroundColor : colors.one,
+        borderColor: colors.one,
+    },
+    bg_two: {
+        backgroundColor : colors.two,
+        borderColor: colors.two,
+    },
+    bg_three: {
+        backgroundColor : colors.three,
+        borderColor: colors.three,
+    },
+    bg_four: {
+        backgroundColor : colors.four,
+        borderColor: colors.four,
+    },
+    bg_five: {
+        backgroundColor : colors.five,
+        borderColor: colors.five,
+    },
 })

@@ -7,11 +7,22 @@ import background from './assets/image/bg.png';
 import colors from './contains/colors';
 import Item from './components/Item';
 import EndGame from './components/EndGame';
+import styleItem from './components/Item/style';
 
-const data = () => Array.from({ length: 50 }, (_, i) => i + 1);
+const shuffle = (array) => array.sort(() => Math.random() - 0.5);
+const bgConstant = [styleItem.bg_one, styleItem.bg_two, styleItem.bg_three, styleItem.bg_four, styleItem.bg_five];
+let arrBg = [];
+for (let i = 0; i < 10; i++) {
+  arrBg = [...arrBg, ...bgConstant];
+}
+
+const dataShuffle = () => shuffle(Array.from({ length: 50 }, (_, i) => i + 1));
+const bgShuffle = () => shuffle(arrBg);
+
 
 export default function App() {
-  const [items, setItems] = useState(data());
+  const [items, setItems] = useState(dataShuffle());
+  const [bg, setBg] = useState(bgShuffle());
 
   return (
     <>
@@ -35,8 +46,9 @@ export default function App() {
             {
               items.map((val, index) =>
                 <Item
-                key={(index.toString())}
-                value={val}
+                  key={(index.toString())}
+                  value={val}
+                  bg={bg[index]}
                 />
               )
             }
