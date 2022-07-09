@@ -24,16 +24,22 @@ export default function App() {
   const [items, setItems] = useState(dataShuffle());
   const [bg, setBg] = useState(bgShuffle());
   const [numberNext, setNumberNext] = useState(1);
+  const [endGame, setEndGame] = useState(false);
   const score = numberNext - 1;
 
   const onChoice = (value) => {
     if (value === numberNext) {
       setNumberNext(value + 1);
     } else {
-      setNumberNext(1);
-      alert('Error');
+      setEndGame(true);
     }
   }
+
+  const onClose = () => {
+    setNumberNext(1);
+    setEndGame(false);
+  }
+
   return (
     <>
       <StatusBar hidden={true} />
@@ -65,7 +71,11 @@ export default function App() {
               )
             }
           </View>
-          {/* <EndGame /> */}
+          <EndGame
+            isVisible={endGame}
+            onClose={onClose}
+            score={score}
+          />
         </SafeAreaView>
       </ImageBackground>
     </>
