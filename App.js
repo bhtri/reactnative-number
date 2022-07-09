@@ -4,7 +4,8 @@ import { FontAwesome } from '@expo/vector-icons';
 import styles from './App.components.style';
 import background from './assets/image/bg.png';
 import colors from './contains/colors';
-import Item from './components/item';
+import Item from './components/Item';
+import EndGame from './components/EndGame';
 
 export default function App() {
   return (
@@ -76,17 +77,8 @@ export default function App() {
             <Item />
             <Item />
             <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
           </View>
+          <EndGame />
         </SafeAreaView>
       </ImageBackground>
     </>
