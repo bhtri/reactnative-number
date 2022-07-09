@@ -1,5 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
-import colors from './contains/colors';
+import colors from './contains/theme';
 
 export default styles = StyleSheet.create({
     backgroundImage: {

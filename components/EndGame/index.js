@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import Modal from "react-native-modal";
 
 import styles from './style';
-import colors from '../../contains/colors';
+import colors from '../../contains/theme';
 
 export default EndGame = ({isVisible, onClose, score}) => {
     return (

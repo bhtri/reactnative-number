@@ -1,15 +1,10 @@
 import { ImageBackground, StatusBar, SafeAreaView, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { useState, useTransition } from 'react';
+import { useState } from 'react';
 
+import { Time, Item, EndGame, styleItem } from './components';
+import { DEFINE, COLORS, IMAGE } from './contains';
 import styles from './App.components.style';
-import background from './assets/image/bg.png';
-import colors from './contains/colors';
-import Item from './components/Item';
-import EndGame from './components/EndGame';
-import styleItem from './components/Item/style';
-import Time from './components/Time';
-import define from './contains/define';
 
 const shuffle = (array) => array.sort(() => Math.random() - 0.5);
 const bgConstant = [styleItem.bg_one, styleItem.bg_two, styleItem.bg_three, styleItem.bg_four, styleItem.bg_five];
@@ -28,14 +23,14 @@ export default function App() {
   const [startGame, setStartGame] = useState(false);
   const [items, setItems] = useState(dataInit);
   const [bg, setBg] = useState(bgInit);
-  const [numberNext, setNumberNext] = useState(define.NUMBER_START);
+  const [numberNext, setNumberNext] = useState(DEFINE.NUMBER_START);
   const [endGame, setEndGame] = useState(false);
-  const [timeOut, setTimeOut] = useState(define.TIME_DEFAULT);
+  const [timeOut, setTimeOut] = useState(DEFINE.TIME_DEFAULT);
   const [hightScore, setHightScore] = useState(0);
   const score = numberNext - 1;
 
   const onChoice = (value) => {
-    if (value === define.NUMBER_START) {
+    if (value === DEFINE.NUMBER_START) {
       setStartGame(true);
     }
     if (value === numberNext) {
@@ -50,7 +45,7 @@ export default function App() {
   }
 
   const onClose = () => {
-    setNumberNext(define.NUMBER_START);
+    setNumberNext(DEFINE.NUMBER_START);
     setEndGame(false);
     setStartGame(false);
     setItems(dataShuffle());
@@ -70,19 +65,19 @@ export default function App() {
     <>
       <StatusBar hidden={true} />
       <ImageBackground
-        source={background}
+        source={IMAGE.background}
         style={styles.backgroundImage}
       >
         <SafeAreaView style={styles.container}>
           <View style={styles.info}>
             <View style={styles.infoScores}>
-              <FontAwesome name='money' size={24} color={colors.one} />
+              <FontAwesome name='money' size={24} color={COLORS.one} />
               <Text style={styles.infoText}>{hightScore}</Text>
             </View>
             <View style={styles.infoTime}>
-              <FontAwesome name='clock-o' size={24} color={colors.one} />
+              <FontAwesome name='clock-o' size={24} color={COLORS.one} />
               <Text style={styles.infoText}>
-                <Time onResponse={onResponse} startGame={startGame} timeOut={timeOut}/>
+                <Time onResponse={onResponse} startGame={startGame} timeOut={timeOut} />
               </Text>
             </View>
           </View>

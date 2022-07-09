@@ -1,4 +1,4 @@
-export default {
+export default COLORS = {
     background:     '#000000',
     primary:        '#1FC5EA',
     one:            '#FFFFFF',

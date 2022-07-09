@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-import colors from '../../contains/colors';
+import { COLORS } from '../../contains';
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height - 128;
 
@@ -62,11 +62,11 @@ export default styles = StyleSheet.create({
     modalBoxScoreNumber: {
         fontSize: 72,
         fontWeight: 'bold',
-        color: colors.numberScore,
+        color: COLORS.numberScore,
     },
     modalButton: {
         flexDirection: 'row',
-        backgroundColor: colors.four,
+        backgroundColor: COLORS.four,
         paddingVertical: 12,
         paddingHorizontal: 27,
         borderRadius: 20,
@@ -75,7 +75,7 @@ export default styles = StyleSheet.create({
     modalButtonText: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: colors.one,
+        color: COLORS.one,
         marginLeft: 15,
     },
 })

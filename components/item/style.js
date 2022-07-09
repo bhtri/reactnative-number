@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-import colors from '../../contains/colors';
+import { COLORS } from '../../contains';
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height - 128;
 
@@ -21,33 +21,33 @@ export default styles = StyleSheet.create({
         fontSize: 24,
         paddingHorizontal: 13,
         paddingVertical: 13,
-        color: colors.background,
+        color: COLORS.background,
     },
     bg_one: {
-        backgroundColor : colors.one,
-        borderColor: colors.one,
+        backgroundColor : COLORS.one,
+        borderColor: COLORS.one,
     },
     bg_two: {
-        backgroundColor : colors.two,
-        borderColor: colors.two,
+        backgroundColor : COLORS.two,
+        borderColor: COLORS.two,
     },
     bg_three: {
-        backgroundColor : colors.three,
-        borderColor: colors.three,
+        backgroundColor : COLORS.three,
+        borderColor: COLORS.three,
     },
     bg_four: {
-        backgroundColor : colors.four,
-        borderColor: colors.four,
+        backgroundColor : COLORS.four,
+        borderColor: COLORS.four,
     },
     bg_five: {
-        backgroundColor : colors.five,
-        borderColor: colors.five,
+        backgroundColor : COLORS.five,
+        borderColor: COLORS.five,
     },
     active: {
-        backgroundColor: colors.active,
-        borderColor: colors.active,
+        backgroundColor: COLORS.active,
+        borderColor: COLORS.active,
     },
     activeNumber: {
-        color: colors.two,
+        color: COLORS.two,
     }
 })
