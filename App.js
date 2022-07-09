@@ -8,6 +8,7 @@ import colors from './contains/colors';
 import Item from './components/Item';
 import EndGame from './components/EndGame';
 import styleItem from './components/Item/style';
+import Time from './components/Time';
 
 const shuffle = (array) => array.sort(() => Math.random() - 0.5);
 const bgConstant = [styleItem.bg_one, styleItem.bg_two, styleItem.bg_three, styleItem.bg_four, styleItem.bg_five];
@@ -55,7 +56,9 @@ export default function App() {
             </View>
             <View style={styles.infoTime}>
               <FontAwesome name='clock-o' size={24} color={colors.one} />
-              <Text style={styles.infoText}>60</Text>
+              <Text style={styles.infoText}>
+                <Time />
+              </Text>
             </View>
           </View>
           <View style={styles.play}>
